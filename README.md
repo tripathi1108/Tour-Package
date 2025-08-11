@@ -1,35 +1,51 @@
+# Simple Tour Package API
 
+A RESTful API built with Spring Boot and PostgreSQL to manage tour packages.
 
-Simple Tour Package API
-A RESTful API built with Spring Boot and PostgreSQL for managing tour packages. This API allows you to create, retrieve, and manage tour packages with features like pricing, discounts, and package details.
-🚀 Features
+## Technology Stack
+- Java Spring Boot
+- PostgreSQL
+- Maven
 
-Create Tour Packages - Add new tour packages with complete details
-List All Packages - Retrieve all available tour packages
-Get Package by ID - Fetch specific tour package details
-Input Validation - Comprehensive validation for all required fields
-Error Handling - Proper HTTP status codes and error responses
-PostgreSQL Integration - Persistent data storage
+## API Endpoints
 
-🛠️ Technology Stack
+### 1. Create Tour Package
+- **POST** `/api/tours`
+- Creates a new tour package
 
-Backend Framework: Spring Boot
-Database: PostgreSQL
-Build Tool: Maven/Gradle
-Java Version: 17+
-API Architecture: RESTful
+### 2. Get All Tour Packages  
+- **GET** `/api/tours`
+- Returns all tour packages
 
-📋 Prerequisites
-Before running this application, make sure you have:
+### 3. Get Tour by ID
+- **GET** `/api/tours/{id}`
+- Returns specific tour package
 
-Java 17 or higher installed
-PostgreSQL database server
-Maven or Gradle (depending on your build configuration)
-IDE (IntelliJ IDEA, Eclipse, or VS Code)
+## Sample Request (POST /api/tours)
+```json
+{
+  "id": 1,
+  "image": "https://images.unsplash.com/photo-1598275277521-1885382d523a",
+  "discountInPercentage": "17%",
+  "title": "Himalayan Trek Adventure",
+  "description": "14-day trek through the Himalayas",
+  "duration": "14Days/13Nights",
+  "actualPrice": "$1200",
+  "discountedPrice": "$1000"
+}
+```
 
-⚙️ Installation & Setup
-1. Clone the Repository
-bashgit clone <your-repository-url>
-cd simple-tour-package-api
-2. Database Configuration
-Create a PostgreSQL database and update the application.properties
+## Setup Instructions
+
+1. Create PostgreSQL database
+2. Update `application.properties` with your database credentials
+3. Run the application:
+   ```bash
+   mvn spring-boot:run
+   ```
+4. API will be available at `http://localhost:8080/api/tours`
+
+## Features
+- Input validation for all fields
+- Proper HTTP status codes
+- Error handling for invalid requests
