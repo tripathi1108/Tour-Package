@@ -20,7 +20,7 @@ public class TourController {
     }
 
     // Create Tour
-    @PostMapping
+    @PostMapping("/new")
     public ResponseEntity<Tour> createTour(@Valid @RequestBody Tour tour) {
         return ResponseEntity.ok(service.createTour(tour));
     }
